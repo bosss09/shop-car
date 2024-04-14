@@ -1,0 +1,17 @@
+<!-- Loading bar -->
+<fort-loading-bar></fort-loading-bar>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full">
+
+  <!-- Content -->
+  <div class="flex flex-col flex-auto">
+    <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+         Otherwise, layout changes won't be registered and the view won't be updated! -->
+
+    <!--<router-outlet *ngIf="true"></router-outlet>-->
+<h1>Hello Empty</h1>
+    <router-outlet *ngIf="true"><h1>Privet RouterOutlet</h1></router-outlet>
+  </div>
+
+</div>

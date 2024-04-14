@@ -47,13 +47,40 @@
                 "output": "/"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/@fortmesh/styles",
+                "src/styles"
+              ]
+            },
             "styles": [
-              "src/styles.scss"
+              "src/@fortmesh/styles/tailwind.scss",
+              "src/@fortmesh/styles/themes.scss",
+              "src/styles/vendors.scss",
+              "src/@fortmesh/styles/main.scss",
+              "src/styles/styles.scss",
+              "src/styles/tailwind.scss"
+
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -65,8 +92,7 @@
                   "maximumWarning": "75kb",
                   "maximumError": "90kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
@@ -83,7 +109,10 @@
               "buildTarget": "shop-car:build:production"
             },
             "development": {
-              "buildTarget": "shop-car:build:development"
+              "buildTarget": "shop-car:build:development",
+              "ssl": true,
+              "sslKey": "src/assets/ssl/localhost-wbst.key",
+              "sslCert": "src/assets/ssl/localhost-wbst.crt"
             }
           },
           "defaultConfiguration": "development"
